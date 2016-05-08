@@ -169,55 +169,104 @@
 			</KontaktiPodjetja>
 		</PodatkiPodjetja>
 		<!-- naročnik -->
+		<%
+ 			var nazivDel1		= "Univerza v Ljubljani,";
+ 			var nazivDel2		= "Fakulteta za računalništvo in informatiko";
+ 			var nazivDel3		= "Laboratorij za";
+ 			var nazivDel4		= "podatkovne tehnologije";
+ 			var ulicaDel1		= "Večna pot";
+ 			var ulicaDel2		= "113";
+ 			var ulicaDel3		= "nadstropje 2, kabinet R2.49";
+ 			var kraj		    = "Ljubljana";
+ 			var nazivDrzave		= "Slovenija";
+ 			var postnaStevilka	= "1000";
+ 			var kodaDrzave		= "SI";
+ 			var stBankRac		= "SI56020120090111333";
+ 			var nazivBankeDel1	= "Moja banka d.d.";
+ 			var nazivBankeDel2	= "Podružnica center";
+ 			var BIC			    = "LJBASI2XXXX";
+ 			var podjetje_va		= "SI67909027";
+ 			var podjetje_gn		= "1627023";
+ 			var podjetje_it		= "444-55";
+ 			var telefon			= "38614798000";
+ 			var fax				= "38612419350";
+ 			var imeOsebe		= "Dejan Lavbič";
+ 			
+ 			if (typeof narocnikRacuna !== 'undefined') {
+ 				var ime_priimek = narocnikRacuna.FirstName + " " + narocnikRacuna.LastName; 
+ 
+ 				nazivDel1		= ime_priimek;
+ 				nazivDel2		= narocnikRacuna.Company;
+ 				nazivDel3		= "";
+ 				nazivDel4		= "";
+ 				ulicaDel1		= narocnikRacuna.Address;
+ 				ulicaDel2		= "";
+ 				ulicaDel3		= "";
+ 				kraj			= narocnikRacuna.City;
+ 				nazivDrzave		= narocnikRacuna.Country;
+ 				postnaStevilka	= narocnikRacuna.PostalCode;
+ 				kodaDrzave		= "";
+ 				stBankRac		= "";
+ 				nazivBankeDel1	= "";
+ 				nazivBankeDel2	= "";
+ 				BIC				= "";
+ 				podjetje_va		= "";
+ 				podjetje_gn		= "";
+ 				podjetje_it 	= "";
+ 				telefon			= narocnikRacuna.Phone;
+ 				fax 			= narocnikRacuna.Fax;
+ 				imeOsebe		= ime_priimek + "(" + narocnikRacuna.Email + ")";
+ 			}
+ 		%>
 		<PodatkiPodjetja>
 			<NazivNaslovPodjetja>
 				<VrstaPartnerja>BY</VrstaPartnerja>
 				<NazivPartnerja>
-					<NazivPartnerja1>Univerza v Ljubljani, </NazivPartnerja1>
-					<NazivPartnerja2>Fakulteta za računalništvo in informatiko</NazivPartnerja2>
-					<NazivPartnerja3>Laboratorij za </NazivPartnerja3>
-					<NazivPartnerja4>podatkovne tehnologije</NazivPartnerja4>
+					<NazivPartnerja1><%= nazivDel1 %></NazivPartnerja1>
+					<NazivPartnerja2><%= nazivDel2 %></NazivPartnerja2>
+					<NazivPartnerja3><%= nazivDel3 %></NazivPartnerja3>
+					<NazivPartnerja4><%= nazivDel4 %></NazivPartnerja4>
 				</NazivPartnerja>
 				<Ulica>
-					<Ulica1>Večna pot </Ulica1>
-					<Ulica2>113</Ulica2>
-					<Ulica3>nadstropje 2, kabinet R2.49</Ulica3>
+					<Ulica1><%= ulicaDel1 %></Ulica1>
+					<Ulica2><%= ulicaDel2 %></Ulica2>
+					<Ulica3><%= ulicaDel3 %></Ulica3>
 				</Ulica>
-				<Kraj>Ljubljana</Kraj>
-				<NazivDrzave>Slovenija</NazivDrzave>
-				<PostnaStevilka>1000</PostnaStevilka>
-				<KodaDrzave>SI</KodaDrzave>
+				<Kraj><%= kraj %></Kraj>
+				<NazivDrzave><%= nazivDrzave %></NazivDrzave>
+				<PostnaStevilka><%= postnaStevilka %></PostnaStevilka>
+				<KodaDrzave><%= kodaDrzave %></KodaDrzave>
 			</NazivNaslovPodjetja>
 			<FinancniPodatkiPodjetja>
 				<BancniRacun>
-					<StevilkaBancnegaRacuna>SI56020120090111333</StevilkaBancnegaRacuna>
-					<NazivBanke1>Moja banka d.d.</NazivBanke1>
-					<NazivBanke2>Podružnica center</NazivBanke2>
-					<BIC>LJBASI2XXXX</BIC>
+					<StevilkaBancnegaRacuna><%= stBankRac %></StevilkaBancnegaRacuna>
+					<NazivBanke1><%= nazivBankeDel1 %></NazivBanke1>
+					<NazivBanke2><%= nazivBankeDel2 %></NazivBanke2>
+					<BIC><%= BIC %></BIC>
 				</BancniRacun>
 			</FinancniPodatkiPodjetja>
 			<ReferencniPodatkiPodjetja>
 				<VrstaPodatkaPodjetja>VA</VrstaPodatkaPodjetja>
-				<PodatekPodjetja>SI67909027</PodatekPodjetja>
+				<PodatekPodjetja><%= podjetje_va %></PodatekPodjetja>
 			</ReferencniPodatkiPodjetja>
 			<ReferencniPodatkiPodjetja>
 				<VrstaPodatkaPodjetja>GN</VrstaPodatkaPodjetja>
-				<PodatekPodjetja>1627023</PodatekPodjetja>
+				<PodatekPodjetja><%= podjetje_gn %></PodatekPodjetja>
 			</ReferencniPodatkiPodjetja>
 			<ReferencniPodatkiPodjetja>
 				<VrstaPodatkaPodjetja>IT</VrstaPodatkaPodjetja>
-				<PodatekPodjetja>444-55</PodatekPodjetja>
+				<PodatekPodjetja><%= podjetje_it %></PodatekPodjetja>
 			</ReferencniPodatkiPodjetja>
 			<KontaktiPodjetja>
 				<KontaktnaOseba>
-					<ImeOsebe>Dejan Lavbič</ImeOsebe>
+					<ImeOsebe><%= imeOsebe %></ImeOsebe>
 				</KontaktnaOseba>
 				<Komunikacije>
-					<StevilkaKomunikacije>38614798000</StevilkaKomunikacije>
+					<StevilkaKomunikacije><%= telefon %></StevilkaKomunikacije>
 					<VrstaKomunikacije>TE</VrstaKomunikacije>
 				</Komunikacije>
 				<Komunikacije>
-					<StevilkaKomunikacije>38612419350</StevilkaKomunikacije>
+					<StevilkaKomunikacije><%= fax %></StevilkaKomunikacije>
 					<VrstaKomunikacije>FX</VrstaKomunikacije>
 				</Komunikacije>
 			</KontaktiPodjetja>
